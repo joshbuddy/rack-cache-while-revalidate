@@ -1,0 +1,12 @@
+= Rack::CacheWhileRevalidate
+
+== Idea
+
+Often, for caching, you don't care if the data is a little stale, you're content to serve the stale data and silently revalidate the cache in the background.
+
+== Usage
+
+In your builder (or rackup or whatever), make sure you first off:
+<tt>use Rack::Capabilities</tt>
+ 
+Then, wherever your <tt>Rack::Cache</tt> usage occurs, put <tt>use Rack::CacheWhileRevalidate</tt> directly before it (NB). That's it!
